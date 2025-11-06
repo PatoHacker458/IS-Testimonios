@@ -5,10 +5,25 @@ import Testimonial from './components/Testimonial';
 import Controls from './components/Controls';
 import './styles.css';
 
+const variants = {
+  enter: (direction) => ({
+    x: direction === 'next' ? 100 : -100,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction) => ({
+    x: direction === 'next' ? -100 : 100,
+    opacity: 0,
+  }),
+};
+
 export default function App() {
   const [index, setIndex] = useState(0);
   const length = testimonios.length;
-  
+  const [direction, setDirection] = useState('next');
   const autoplayRef = useRef(null);
 
   const next = () => {
@@ -29,6 +44,7 @@ export default function App() {
 
   useEffect(() => {
     autoplayRef.current = setInterval(() => {
+      setDirection('next');
       next();
     }, 5000);
 
@@ -40,12 +56,18 @@ export default function App() {
   }, [length, index]);
 
   const handleUserAction = (actionFn) => {
+    setDirection(dir);
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
     }
     
     actionFn();
     autoplayRef.current = setInterval(() => {
+      next();
+    }, 5000);
+
+    autoplayRef.current = setInterval(() => {
+      setDirection('next');
       next();
     }, 5000);
   };
