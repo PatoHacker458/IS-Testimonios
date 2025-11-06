@@ -1,3 +1,35 @@
+:root {
+  --bg: #f7f7fb;
+  --card: #fff;
+  --accent: #4f46e5;
+  --muted: #666;
+}
+
+body {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  color: #213547;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--accent);
+}
+
+.card-wrapper {
+  /* Este contenedor ayuda a manejar la transición (Mejora opcional) */
+  min-height: 320px; /* Evita que la tarjeta "salte" si el texto es de diferente altura */
+}
+
 .testimonia-card {
     background: white;
     border-radius: 12px;
@@ -17,4 +49,52 @@
 .testimonial-name {
     font-weight: 600;
     margin-bottom: 4px;
+}
+
+.testimonial-role {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 6px 0 12px;
+}
+
+.testimonial-text {
+  font-style: italic;
+  line-height: 1.5;
+  color: #222;
+}
+
+.controls {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.controls button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.counter {
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+[classsName="testimonial-role"] {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 6px 0 12px;
 }
