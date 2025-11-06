@@ -1,0 +1,20 @@
+.testimonia-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.testimonial-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.testimonial-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
