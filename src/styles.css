@@ -19,6 +19,7 @@ body {
   width: 100%;
   max-width: 420px;
   text-align: center;
+  overflow-x: hidden; 
 }
 
 h1 {
@@ -26,8 +27,7 @@ h1 {
 }
 
 .card-wrapper {
-  /* Este contenedor ayuda a manejar la transición (Mejora opcional) */
-  min-height: 320px; /* Evita que la tarjeta "salte" si el texto es de diferente altura */
+  min-height: 320px;
 }
 
 .testimonia-card {
@@ -36,6 +36,7 @@ h1 {
     padding: 24px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     text-align: center;
+    width: 100%;
 }
 
 .testimonial-photo {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import testimonios from './data';
 import Testimonial from './components/Testimonial';
 import Controls from './components/Controls';
@@ -36,7 +37,7 @@ export default function App() {
         clearInterval(autoplayRef.current);
       }
     };
-  }, [length]);
+  }, [length, index]);
 
   const handleUserAction = (actionFn) => {
     if (autoplayRef.current) {
@@ -52,9 +53,18 @@ export default function App() {
   return (
     <main className="app">
       <h1>Testimonios</h1>
-      <div className="card-wrapper">
-        <Testimonial item={testimonios[index]} />
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          className="card-wrapper"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <Testimonial item={testimonios[index]} />
+        </motion.div>
+      </AnimatePresence>
 
       <Controls
         onPrev={() => handleUserAction(prev)}
