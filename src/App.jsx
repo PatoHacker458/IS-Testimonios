@@ -55,16 +55,12 @@ export default function App() {
     };
   }, [length, index]);
 
-  const handleUserAction = (actionFn) => {
+  const handleUserAction = (actionFn, dir) => {
     setDirection(dir);
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
+      actionFn();
     }
-    
-    actionFn();
-    autoplayRef.current = setInterval(() => {
-      next();
-    }, 5000);
 
     autoplayRef.current = setInterval(() => {
       setDirection('next');
@@ -75,23 +71,25 @@ export default function App() {
   return (
     <main className="app">
       <h1>Testimonios</h1>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" custom={direction}>
         <motion.div
           key={index}
           className="card-wrapper"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           <Testimonial item={testimonios[index]} />
         </motion.div>
       </AnimatePresence>
 
       <Controls
-        onPrev={() => handleUserAction(prev)}
-        onNext={() => handleUserAction(next)}
-        onRandom={() => handleUserAction(random)}
+        onPrev={() => handleUserAction(prev, 'prev')}
+        onNext={() => handleUserAction(next, 'next')}
+        onRandom={() => handleUserAction(random, 'next')}
       />
 
       <p className="counter"> {index + 1} / {length} </p>
