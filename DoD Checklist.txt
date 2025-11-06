@@ -1,0 +1,33 @@
+Checklist de Definición of Done
+
+Historia de Usuario: HU-01 (Mostrar testimonios)
+
+1. Código revisado por otro desarrollador (code review). [x]
+
+2. Pasa pruebas de funcionalidad (unitarias y manuales).
+
+[x] Pruebas Unitarias
+[x] Pruebas Manuales
+    [x] ¿Funciona el botón "Siguiente"?
+    [x] ¿Funciona el botón "Anterior"?
+    [x] ¿Funciona el botón "Aleatorio"?
+    [x] ¿La navegación es circular (pasa del último al primero)?
+    [x] ¿El autoplay avanza solo cada 5 segundos?
+    [x] ¿El autoplay se pausa y reinicia correctamente cuando presionas un botón?
+
+3. Cumple con criterios de accesibilidad básicos (aria-label, alt).
+
+[x] Botones (aria-label).
+[x] Imágenes (alt).
+
+4. Se visualiza correctamente en al menos tres tamaños de pantalla.
+
+[x] Móvil Samsung Galaxy S24 Ultra
+
+[x] Tablet Samsung Galaxy Tab S9 FE
+
+[x] Escritorio HP Zbook 14 Firefly G11
+
+5. Sin errores en consola. [X]
+
+6. Desplegado en entorno de pruebas o demo. [X]
